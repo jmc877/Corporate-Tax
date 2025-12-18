@@ -5,6 +5,36 @@
   <link href="global.css" type="text/css" rel="stylesheet">
   <style type="text/css">
  </style>
+
+
+    <style>
+      .reading {
+          display: none;
+      }
+  
+      h3 {
+          cursor: pointer;
+      }
+   
+   
+      #toggle-all {
+            margin-left: 20px;
+            padding: 3px 3px;
+            font-size: 10px; 
+            background-color: #94042c;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        #toggle-all:hover {
+            background-color: #94042c;
+        }
+   
+
+    </style>
+        
 </head>
 
 <body>
@@ -29,7 +59,7 @@
         <br>
         <hr>
       <h1>Last Update: 
-        <br> 10 Dec 2025</h1> 
+        <br> 20 Dec 2025</h1> 
         <small> 
          [12/5]: Posted draft syllabus
           <br>
@@ -40,7 +70,7 @@
       
       <h1>Assignments</h1>
       <small>
-          [1/15]: 
+          [1/15]: Due to a prior speaking engagement, the first class will be a shortened 1-hr Z class.
             <br>
           [1/20]:
             <br>
@@ -84,17 +114,18 @@
 
   </div>
       
+    <button id="toggle-all">Expand All</button>
+  
   <div class="article">
 
     <h3>Required Texts and Materials</h3>
-    <ul>
-      <li> We're going to emphasize learning corporate tax primarily through problems that we cover together in class after the lectures.  
+      <ul class="reading">
+      <li> We're will emphasize learning corporate tax primarily through problems that we cover together in class after the lectures.  
         
-      <li> <em>Corporate Taxation, Examples and Explanations</em> (5th ed), <em>CT E&E</em>, is the primary text for the class.  It is available on Amazon, but you also have free access through the <a href="https://aspenlearninglibrary-com.fls.idm.oclc.org/bookshelf">FLS Library</a>.  Make sure you purchase the 5th ed. 
+      <li> <em>Corporate Taxation, Examples and Explanations</em> (5th ed), <em>CT E&E</em>, is the primary text for the class. You have free access through the <a href="https://aspenlearninglibrary-com.fls.idm.oclc.org/bookshelf">FLS Library</a>.  If you wish to sure a hard copy, make sure you purchase the 5th ed. </li>
       
-      <li>The Nutshell and Black Letter Outline for Corporate Taxation are useful, and they are available for my favorite price (free!) here: <a href="https://subscription-westacademic-com.fls.idm.oclc.org/">WL Study Guides</a>.  Here's a <a href="https://docs.google.com/spreadsheets/d/1fSliVm_yCUt3E6o8RbLez2BOsM_0nhlde4SgNl1zcyE/edit?usp=sharing">concordance </a>for each <em>CT E&E</em> topic from the Nutshell, BLO, and Yin & Burke, <em>Corporate Taxation</em> (2nd ed. 2016), which we used in prior years and is a more traditional casebook.  I think the book is very solid, but many students did not.  You wouldn't be harmed by buying a used version for $20 and reading it along with <em>CT E&E</em>. </li>
         
-      <li>The Code and Regs we'll be using this semester are in this pdf:  <a href="Code & Regs 2026S Coming Soon">2026 Corp Tax Code and Regs [Coming Soon]</a>, which is current through December 2025.  I highly recommend that you print it out (it's around 175 pages) and perhaps spiral bind it and keep it next to you to mark up during class and while doing the problems and readings.  You are welcome to use a commercial printed version, such as Foundation Press or CCH. </li>
+      <li>The Code and Regs we'll be using this semester are in this pdf:  <a href="Code & Regs 2026S Coming Soon">2026 Corp Tax Code and Regs [Coming Soon]</a>, which is current through December 2025.  I highly recommend that you print it out (it's around 175 pages) and and keep it next to you to mark up during class and while doing the problems and readings.  You are welcome to use a commercial printed version, such as Foundation Press or CCH. </li>
 
       <li>The Code and Regs are available on line at <a href="https://www.taxnotes.com/research">Tax Materials</a>. This is a fantastic free database of fundamental tax materials. On the Supplemental Materials, I show how to make a bookmark that will take you directly to the appropriate code or regulation section. All relevant tax materials are also available on BLaw, WL, Lexis, or Vital Law.</li>
       
@@ -114,10 +145,14 @@
       <li>CODE & REGS: N/A</li> 
       <li>ADDITIONAL READINGS: 
         <ul>
+         
+          <li><a href="Avi Yonah Corp Tax.pdf">Corp Income Tax</a> This brief article discusses some economic rationales for the corporate income tax (skim lightly only). 
+          </li>
+          
           <li>
             <a href="Accounting Law Firms.pdf">Accounting vs. Law Firms</a> (skim lightly only)
           </li>
-          <li><a href="Avi Yonah Corp Tax.pdf">Corp Income Tax</a> This brief article discusses some economic rationales for the corporate income tax (skim lightly only). </li>
+
           <li><a href="GPTChat Tax TN 2023.pdf">Tax and GPTChat</a></li>
         </ul>
       </li> 
@@ -178,11 +213,7 @@
                 <li><a href="Bittker and Lokken Tax Common Law.docx">Bittker & Lokken, Tax Common Law Doctrines</a> Skim pp. 4-15 </li>
               </ul>
           </li> 
-            <!-- PROPOSED LEGISLATION: 
-             <ul>
-               <li>How would section 1202 be amended under the BBB Act?</li>
-               <li>How would the BBB Act affect a corporation's interest deductions?</li>
-            </ul> -->
+           
       </ul> 
       
            <h3>Taxation of S Corporations</h3>
@@ -505,6 +536,36 @@
 </div>
 </div>
 </div>
+
+          <script>
+      document.addEventListener('DOMContentLoaded', function () {
+          var headings = document.querySelectorAll('h3');
+          var readingLists = document.querySelectorAll('.reading');
+          var toggleAllButton = document.getElementById('toggle-all');
+
+          var allExpanded = false;  // Track whether all sections are currently expanded or collapsed
+
+          headings.forEach(function (h3) {
+              h3.addEventListener('click', function () {
+                  var readingList = this.nextElementSibling;
+                  readingList.style.display = readingList.style.display === 'none' ? 'block' : 'none';
+              });
+          });
+
+          toggleAllButton.addEventListener('click', function () {
+              allExpanded = !allExpanded;  // Flip the current state
+
+              readingLists.forEach(function (list) {
+                  list.style.display = allExpanded ? 'block' : 'none';
+              });
+
+              toggleAllButton.textContent = allExpanded ? 'Collapse All' : 'Expand All';
+          });
+      });
+    </script>
+
+
+
 </body>
 </html>
 
